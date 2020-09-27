@@ -19,7 +19,9 @@ class amongushelper(commands.Cog):
     
 @commands.command()
 async def map(self, ctx, map_name:str):
+    """Returns the Among Us map resource"""
     if map_name is "polus":
+        await ctx.send("Polus")
         await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png")
     elif map_name is "skeld":
         await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg")
