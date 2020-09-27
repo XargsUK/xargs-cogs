@@ -1,16 +1,24 @@
-from redbot.core import commands
+import asyncio, time
+from typing import Union
+from difflib import get_close_matches
 
-class helper(commands.Cog):
-    """My custom cog"""
+# Discord.py
+import discord
 
+# Red
+from redbot.core import checks, commands, Config
+from redbot.core.bot import Red
+from redbot.core.utils.predicates import ReactionPredicate
+from redbot.core.utils.menus import start_adding_reactions
+# from redbot.core.utils.chat_formatting import humanize_list
+
+class amongushelper(commands.Cog):
+
+	__version__ = "1.0.0"
+	__author__ = "xargs"
+    map_name="default"
     @commands.command()
-    async def map(self, ctx):
-        """This does stuff!"""
-        # Your code will go here
-        await ctx.send("Map!")
-
-    @commands.command()
-    async def maptest(self, ctx, map_name:str):
+    async def map(self, ctx, map_name:str):
         if map_name == "polus"
             await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png")
         elif map_name == "skeld"
