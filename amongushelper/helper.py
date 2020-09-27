@@ -16,9 +16,11 @@ class amongushelper(commands.Cog):
 
 	__version__ = "1.0.0"
 	__author__ = "xargs"
-    map_name="default"
+
     @commands.command()
-    async def map(self, ctx, map_name:str):
+    async def map(self, ctx, map_name:str=None):
+        if map_name == None
+            await ctx.send("Map not recognised. Please select polus / skeld / mira")
         if map_name == "polus"
             await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png")
         elif map_name == "skeld"
@@ -26,4 +28,4 @@ class amongushelper(commands.Cog):
         elif map_name == "mira"
             await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png")
         else:
-            await ctx.send("Map not recognised. Please select polus / skeld / mira")
+            await ctx.send("Error")
