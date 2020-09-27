@@ -18,7 +18,7 @@ class amongushelper(commands.Cog):
 	__author__ = "xargs"
     
 @commands.command()
-async def maptest(self, ctx, map_name:str):
+async def map(self, ctx, map_name:str):
     if map_name is "polus":
         await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png")
     elif map_name is "skeld":

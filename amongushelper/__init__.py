@@ -1,4 +1,4 @@
-from .helper import helper
+from .helper import amongushelper
 
 
 def setup(bot):
