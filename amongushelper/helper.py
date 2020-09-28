@@ -17,13 +17,13 @@ class amongushelper(commands.Cog):
     __version__ = "1.0.0"
     __author__ = "xargs"
 
-maps = {
-    "polus" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png",
-    "skeld" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg",
-    "mira" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png"
-}
-map_name = None
-@commands.command()
-async def map(self, ctx, map_name: str):
-    await ctx.send(self.maps[map_name])
-    await ctx.send(self.map_name)
+    maps = {
+        "polus" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png",
+        "skeld" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg",
+        "mira" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png"
+    }
+    map_name = None
+    @commands.command()
+    async def map(self, ctx, map_name: str):
+        await ctx.send(self.maps[map_name])
+        await ctx.send(self.map_name)
