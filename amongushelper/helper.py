@@ -20,7 +20,7 @@ class amongushelper(commands.Cog):
 maps = {"mapname": "url"}
 maps = {
     "polus" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png",
-    "skeld" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg"
+    "skeld" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg",
     "mira" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png"
 }
 
