@@ -26,7 +26,7 @@ class amongushelper(commands.Cog):
 
     @commands.command()
     async def map(self, ctx, map_name):
-        await ctx.send(self.maps.get(map_name.lower(), "Map not recognised. Try Polus, Skeld or Mira"))
+        await ctx.send(self.maps.get(map_name.lower(), f"{map_name} isn't a recognised map. Try Polus, Skeld or Mira"))
 
     wikis = {
         "crewmate":"https://among-us.fandom.com/wiki/Crewmate",
