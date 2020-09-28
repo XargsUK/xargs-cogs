@@ -1,4 +1,5 @@
-import asyncio, time
+import asyncio
+import time
 from typing import Union
 from difflib import get_close_matches
 
@@ -12,22 +13,23 @@ from redbot.core.utils.predicates import ReactionPredicate
 from redbot.core.utils.menus import start_adding_reactions
 # from redbot.core.utils.chat_formatting import humanize_list
 
-class amongushelper(commands.Cog):
 
+class amongushelper(commands.Cog):
     __version__ = "1.0.0"
     __author__ = "xargs"
 
     maps = {
-        "polus" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png",
-        "skeld" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg",
-        "mira" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png"
+        "polus":"https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png",
+        "skeld":"https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg",
+        "mira":"https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png"
     }
 
     map_name = None
 
     @commands.command()
     async def map(self, ctx, map_name):
-        if map_name.lower() in self.maps:
-            await ctx.send(self.maps[map_name.lower()])
-        else:
-            await ctx.send("Map not recognised. Try Polus, Skeld or Mira")
+        await ctx.send(self.maps.get[map_name.lower(), "Key error"])
+        # if map_name.lower() in self.maps:
+        #     await ctx.send(self.maps[map_name.lower()])
+        # else:
+        #     await ctx.send("Map not recognised. Try Polus, Skeld or Mira")
