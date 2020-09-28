@@ -17,15 +17,13 @@ class amongushelper(commands.Cog):
 	__version__ = "1.0.0"
 	__author__ = "xargs"
     
+maps = {"mapname": "url"}
+maps = {
+    "polus" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png",
+    "skeld" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg"
+    "mira" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png"
+}
+
 @commands.command()
-async def map(self, ctx, map_name:str):
-    """Returns the Among Us map resource"""
-    if map_name is "polus":
-        await ctx.send("Polus")
-        await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png")
-    elif map_name is "skeld":
-        await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg")
-    elif map_name is "mira":
-        await ctx.send("https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png")
-    else:
-        await ctx.send("Map not recognised. Please select polus / skeld / mira")
+async def map(self, ctx, lower(map_name: str)):
+    await ctx.send(maps.get(map_name, "Not found"))
