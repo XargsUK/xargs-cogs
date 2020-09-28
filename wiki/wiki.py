@@ -20,9 +20,6 @@ class Wiki(commands.Cog):
     __author__ = "xargs"
 
 
-
-
-
     def __init__(self, bot: Red):
         self.bot = bot
         self.config = Config.get_conf(self, identifier=424914245973442562, force_registration=True)
