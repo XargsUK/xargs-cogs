@@ -1,5 +1,5 @@
-from .helper import amongushelpernew
+from .wiki import Wiki
 
-
-def setup(bot):
-    bot.add_cog(amongushelpernew())
+async def setup(bot):
+	cog = Wiki(bot)
+	bot.add_cog(cog)

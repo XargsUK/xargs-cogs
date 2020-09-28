@@ -15,7 +15,7 @@ from redbot.core.utils.menus import start_adding_reactions
 # from redbot.core.utils.chat_formatting import humanize_list
 
 
-class amongushelper(commands.Cog):
+class Wiki(commands.Cog):
     __version__ = "1.0.0"
     __author__ = "xargs"
 
@@ -103,14 +103,14 @@ class amongushelper(commands.Cog):
         try: # Delete reactions from question message
             if ctx.channel.permissions_for(ctx.me).manage_messages:
                 await msg.clear_reactions()
-            except:
+        except:
                 pass
 
-            if pred.result is not True:
-                return # User didn't responded with tick
+        if pred.result is not True:
+            return # User didn't responded with tick
             
-            wiki_name = match[0]
-            return wiki_name
+        wiki_name = match[0]
+        return wiki_name
     
     async def send_wiki_list(self, ctx):
         wikis = await self.get_wikis(ctx)
@@ -139,7 +139,7 @@ class amongushelper(commands.Cog):
 
     def lock_command(self,ctx):
         guild_id = str(ctx.guild_id)
-        if self.lockcommand.get(guild_id, False)
+        if self.lockcommand.get(guild_id, False):
             return True
         self.lockcommand.update({guild_id:True})
         return False
@@ -153,11 +153,11 @@ class amongushelper(commands.Cog):
 	#-----------------------------------Wikis-----------------------------------
     async def get_wikis(self, ctx):
         guild_id = str(ctx.guild.id)
-	    wikis = self.wikis.get(guild_id)
-	    if wikis is None:
-		    guild_group = self.config.guild(ctx.guild)
-		    wikis = await guild_group.wikis()
-		    self.wikis.update({guild_id:wikis})
+        wikis = self.wikis.get(guild_id)
+        if wikis is None:
+            guild_group = self.config.guild(ctx.guild)
+            wikis = await guild_group.wikis()
+            self.wikis.update({guild_id:wikis})
         return wikis
 
     async def add_wiki(self, ctx, wiki_name, wiki_resource):
