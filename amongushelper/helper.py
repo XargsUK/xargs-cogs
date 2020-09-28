@@ -24,6 +24,6 @@ maps = {
 }
 
 @commands.command()
-def map(self, ctx, map_name: str):
-    ctx.send(maps[map_name])
-    ctx.send(map_name)
+async def map(self, ctx, map_name: str):
+    await ctx.send(maps[map_name])
+    await ctx.send(map_name)
