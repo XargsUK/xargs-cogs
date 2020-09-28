@@ -28,7 +28,7 @@ class amongushelper(commands.Cog):
 
     @commands.command()
     async def map(self, ctx, map_name):
-        await ctx.send(self.maps.get[map_name.lower(), "Key error"])
+        await ctx.send(self.maps.get(map_name.lower(), "Key error"))
         # if map_name.lower() in self.maps:
         #     await ctx.send(self.maps[map_name.lower()])
         # else:
