@@ -14,10 +14,9 @@ from redbot.core.utils.menus import start_adding_reactions
 
 class amongushelper(commands.Cog):
 
-	__version__ = "1.0.0"
-	__author__ = "xargs"
-    
-maps = {"mapname": "url"}
+    __version__ = "1.0.0"
+    __author__ = "xargs"
+
 maps = {
     "polus" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4c/Polus.png",
     "skeld" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg",
@@ -26,5 +25,4 @@ maps = {
 
 @commands.command()
 async def map(self, ctx, map_name: str):
-    await ctx.send("hello")
-    await ctx.send(maps.get(map_name, "Not found"))
+    await ctx.send(maps[map_name])
