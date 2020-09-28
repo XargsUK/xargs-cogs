@@ -38,7 +38,7 @@ class Wiki(commands.Cog):
             return await ctx.send('Someone else is current using this command. Please wait and retry soon.')
         
         #-----------------------Check if wiki is in list-------------------------
-        wikis = await self.get_games(ctx)
+        wikis = await self.get_wikis(ctx)
         wiki_name = wiki_name if wiki_name in wikis else await self.find_wiki_name(ctx,wiki_name)
 
         if wiki_name is None:
@@ -76,7 +76,7 @@ class Wiki(commands.Cog):
         await self.del_wiki(ctx, wiki_name)
         await ctx.tick()
     
-    @matchmaking.command()
+    @wiki.command()
     @checks.guildowner_or_permissions(administrator=True)
     async def cleardata(self, ctx: commands.Context):
         """This will remove all the saved data"""
