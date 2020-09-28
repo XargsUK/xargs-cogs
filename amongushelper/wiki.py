@@ -75,6 +75,8 @@ class Wiki(commands.Cog):
             f'Here you go {ctx.author.mention}! {wiki_resource}',
             allowed_mentions=discord.AllowedMentions(roles=True)
         )
+        self.unlock_command(ctx)
+
 
     @wiki.command()
     @checks.guildowner_or_permissions(administrator=True)
