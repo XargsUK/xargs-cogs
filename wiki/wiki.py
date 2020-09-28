@@ -141,7 +141,7 @@ class Wiki(commands.Cog):
             return await ctx.send("There are currently no wikis on the list.")
 
         #---------------------Create a game list message------------------------
-        name_wikis = [n for n in wikis.keys()]
+        name_wikis = wikis.keys()
         await ctx.send('>>> **Wiki List:**\n' + '\n'.join(name_wikis))
 
     async def send_setting_wikis(self, ctx):
