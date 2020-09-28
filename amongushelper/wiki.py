@@ -19,6 +19,23 @@ class Wiki(commands.Cog):
     __version__ = "1.0.0"
     __author__ = "xargs"
 
+
+
+
+
+    def __init__(self, bot: Red):
+        self.bot = bot
+        self.config = Config.get_conf(self, identifier=424914245973442562, force_registration=True)
+        defaul_guild = {
+			'wikis':{}
+			}
+
+        self.config.register_guild(**defaul_guild)
+
+		# Using this to gain data accessing performance via RAM
+        self.wikis = {}
+        self.lockcommand = {}
+
     @commands.group(aliases=['w'], invoke_without_command=True)
     @commands.guild_only()
     async def wiki(self, ctx: commands.Context, *, wiki_name:str=None):
@@ -56,7 +73,7 @@ class Wiki(commands.Cog):
 
     @wiki.command()
     @checks.guildowner_or_permissions(administrator=True)
-    async def wiki(self, ctx: commands.Context, wiki_name, *, wiki_url):
+    async def add(self, ctx: commands.Context, wiki_name, *, wiki_resource):
         """Adds a wiki name to a corresponding wiki resource"""
         wikis = await self.get_wikis(ctx)
         if wiki_name in wikis:
@@ -132,7 +149,7 @@ class Wiki(commands.Cog):
 
         #---------------------Create a wiki info message------------------------
         txt = '>>> **Wiki settings list**\n'
-        for wiki_name, info in wiki.items():
+        for wiki_name, info in wikis.items():
             wiki_resource = info['wiki_resource']
             txt += f'`{wiki_name}` | {wiki_resource}\n'
         await ctx.send(txt)
@@ -165,7 +182,7 @@ class Wiki(commands.Cog):
         wikis = await self.get_wikis(ctx)
 
         wikis[wiki_name] = {
-            'wiki_resource':self.wiki.resource,
+            'wiki_resource':wiki_resource
         }
 
         await self.config.guild(ctx.guild.id).wikis.set(wikis)
@@ -182,38 +199,3 @@ class Wiki(commands.Cog):
 
         await self.config.guild(ctx.guild).wikis.set(wikis)
         self.wikis.update({guild_id:wikis})
-
-    async def get_settings(self, ctx, key=None):
-        guild_id = str(ctx.guild.id)
-        settings = self.settings.get(guild_id)
-
-        if settings is None:
-            guild_group = self.config.guild(ctx.guild)
-            settings = await guild_group.settings()
-            self.settings.update({guild_id:settings})
-
-        if key is None:
-            return settings
-        else: 
-            return settings.get(key)
-
-    async def add_settings(self, ctx, key, value):
-        guild_id = str(ctx.guild.id)
-        settings = await self.get_settings(ctx)
-
-        await self.config.guild(ctx.guild).settings.set(settings)
-        self.settings.update({guild_id:settings})
-        return True # add value to settings completed succesfull
-
-    async def del_settings(self, ctx, key, value):
-        guild_id = str(ctx.guild.id)
-        settings = await self.get_settings(ctx)
-
-        await self.config.guild(ctx.guild).settings.set(settings)
-        self.settings.update({guild_id:settings})
-        return True # delete value from settings completed succesfull
-    
-    async def check_settings(self, ctx, key, value):
-        guild_id = str(ctx.guild.id)
-        settings = await self.get_settings(ctx)
-        return True 
