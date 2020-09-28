@@ -155,7 +155,7 @@ class Wiki(commands.Cog):
         await ctx.send(txt)
 
     def lock_command(self,ctx):
-        guild_id = str(ctx.guild_id)
+        guild_id = str(ctx.guild.id)
         if self.lockcommand.get(guild_id, False):
             return True
         self.lockcommand.update({guild_id:True})
