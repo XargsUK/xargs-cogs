@@ -25,4 +25,7 @@ class amongushelper(commands.Cog):
     map_name = None
     @commands.command()
     async def map(self, ctx, map_name):
-        await ctx.send(self.maps[map_name.lower()])
+        if map_name in self.maps.values():
+            await ctx.send(self.maps[map_name.lower()])
+        else:
+            await ctx.send("Map not recognised. Try Polus, Skeld or Mira")
