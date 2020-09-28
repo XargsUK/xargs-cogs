@@ -22,10 +22,9 @@ class amongushelper(commands.Cog):
         "skeld" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/4/4f/SKELD_MAP.jpg",
         "mira" : "https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png"
     }
-    map_name = None
     @commands.command()
     async def map(self, ctx, map_name):
-        if self.map_name in maps():
+        if self.map_name in self.maps:
             await ctx.send(self.maps[map_name.lower()])
         else:
             await ctx.send("Map not recognised. Try Polus, Skeld or Mira")
