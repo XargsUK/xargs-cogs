@@ -24,9 +24,24 @@ class amongushelper(commands.Cog):
         "mira":"https://vignette.wikia.nocookie.net/among-us-wiki/images/0/0a/Mirahq.png"
     }
 
-    map_name = None
-
     @commands.command()
     async def map(self, ctx, map_name):
         await ctx.send(self.maps.get(map_name.lower(), "Map not recognised. Try Polus, Skeld or Mira"))
 
+    wikis = {
+        "crewmate":"https://among-us.fandom.com/wiki/Crewmate",
+        "imposter":"https://among-us.fandom.com/wiki/Impostor",
+        "use":"https://among-us.fandom.com/wiki/Use",
+        "report":"https://among-us.fandom.com/wiki/Report",
+        "kill":"https://among-us.fandom.com/wiki/Kill",
+        "sabotage":"https://among-us.fandom.com/wiki/Sabotage",
+        "vent":"https://among-us.fandom.com/wiki/Vent",
+        "security":"https://among-us.fandom.com/wiki/Security",
+        "doorlog":"https://among-us.fandom.com/wiki/Doorlog",
+        "vitals":"https://among-us.fandom.com/wiki/Vitals",
+        "tasks":"https://among-us.fandom.com/wiki/Tasks"
+    }
+
+    @commands.command()
+    async def wiki(self, ctx, wiki_name):
+        await ctx.send(self.wikis.get(wiki_name.lower(), "I can't find a wiki for that."))
