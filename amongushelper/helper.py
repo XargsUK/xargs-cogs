@@ -25,7 +25,9 @@ class amongushelper(commands.Cog):
     }
 
     @commands.command()
+
     async def map(self, ctx, map_name):
+        """Returns a image with the map requested"""
         await ctx.send(self.maps.get(map_name.lower(), f"{map_name} isn't a recognised map. Try Polus, Skeld or Mira"))
 
     wikis = {
@@ -44,4 +46,4 @@ class amongushelper(commands.Cog):
 
     @commands.command()
     async def wiki(self, ctx, wiki_name):
-        await ctx.send(self.wikis.get(wiki_name.lower(), f"I can't find a wiki for {wiki_name}. I have actions (kill, report etc) and roles (crewmate/imposter)."))
+        await ctx.send(self.wikis.get(wiki_name.lower(), f"I can't find a wiki for {wiki_name}. Try requesting wikis for actions (kill, report etc) and roles (crewmate/imposter)."))
