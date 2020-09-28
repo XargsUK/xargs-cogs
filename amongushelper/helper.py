@@ -26,4 +26,4 @@ maps = {
 
 @commands.command()
 async def map(self, ctx, map_name: str):
-    await ctx.send(maps.get(map_name.lower, "Not found"))
+    await ctx.send(maps.get(map_name.lower(), "Not found"))
