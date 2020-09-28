@@ -185,7 +185,7 @@ class Wiki(commands.Cog):
             'wiki_resource':wiki_resource
         }
 
-        await self.config.guild(ctx.guild.id).wikis.set(wikis)
+        await self.config.guild(ctx.guild).wikis.set(wikis)
         self.wikis.update({guild_id:wikis})
 
     async def del_wiki(self, ctx, wiki_name):
