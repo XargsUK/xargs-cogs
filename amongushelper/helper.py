@@ -26,4 +26,3 @@ class amongushelper(commands.Cog):
     @commands.command()
     async def map(self, ctx, map_name: str):
         await ctx.send(self.maps[map_name])
-        await ctx.send(self.map_name)
