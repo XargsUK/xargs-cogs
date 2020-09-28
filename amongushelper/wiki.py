@@ -71,6 +71,11 @@ class Wiki(commands.Cog):
             self.unlock_command(ctx)
             return await ctx.send(f'While there\'s a wiki entry for {wiki_name}, there\'s no resource associated with it.')
 
+        await ctx.send(
+            f'Here you go {ctx.author.mention}! {wiki_resource}',
+            allowed_mentions=discord.AllowedMentions(roles=True)
+        )
+
     @wiki.command()
     @checks.guildowner_or_permissions(administrator=True)
     async def add(self, ctx: commands.Context, wiki_name, *, wiki_resource):
