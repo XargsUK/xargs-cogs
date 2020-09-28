@@ -44,4 +44,4 @@ class amongushelper(commands.Cog):
 
     @commands.command()
     async def wiki(self, ctx, wiki_name):
-        await ctx.send(self.wikis.get(wiki_name.lower(), "I can't find a wiki for that."))
+        await ctx.send(self.wikis.get(wiki_name.lower(), f"I can't find a wiki for {wiki_name}. I have actions (kill, report etc) and roles (crewmate/imposter)."))
